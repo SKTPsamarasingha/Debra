@@ -1,0 +1,32 @@
+﻿
+.Empinput-group {
+    width: 30rem;
+    display: flex;
+    align-items: center;
+}
+
+.EmpEventSrch-Bar {
+    width: 70%;
+    height: fit-content;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.EmpEventSrch-Btn {
+    width: 30%;
+    height: fit-content;
+    color: #39397f;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.table-container {
+}
+.userView-container {
+   
+}

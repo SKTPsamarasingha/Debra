@@ -1,0 +1,312 @@
+﻿
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #b5b5bb;
+}
+
+.main {
+    display: flex;
+    gap: 13rem;
+}
+
+/*Form {
+    display: flex;
+    flex-direction: row;
+    gap: 11rem;
+}*/
+/*Side panal*/
+.Btn-contienr {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: start;
+    width: 20rem;
+    height: 30rem;
+}
+
+.asideBtns {
+    background-color: #000025;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.5rem;
+    width: 18rem;
+    height: 4rem;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+/* General form container styles */
+
+/*styles for forms*/
+#form_continer {
+    width: 30rem;
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form heading style */
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form-group container to space elements */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Label styling */
+label {
+    font-size: 14px;
+    color: #000025;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Input (TextBox) styling */
+input[type="text"], input[type="email"], input[type="password"], input[type="phone"],
+textarea, .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+    input:focus, textarea:focus {
+        outline: none;
+        border-color: #000025;
+    }
+
+.date-time-container input[type="datetime-local"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 200px;
+    transition: border-color 0.3s;
+}
+
+    .date-time-container input[type="datetime-local"]:focus {
+        border-color: #000025;
+        outline: none;
+    }
+
+
+/* Button styling */
+button, .form-control[type="submit"], .form-control[type="button"], .form-control[type="reset"] {
+    background-color: #000025;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    button:hover, .form-control:hover {
+        background-color: #0056b3;
+    }
+
+/* Additional button styles */
+
+
+
+.regiBtn {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #000025;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#buttonContainer .form-control:hover {
+    background-color: #218838;
+}
+
+.backBtn {
+    background-color: rebeccapurple;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    width: 15rem;
+}
+/* DropDownList styling */
+.dropdown-container select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+    .dropdown-container select:focus {
+        border-color: #000025;
+        outline: none;
+    }
+
+    .dropdown-container select option {
+        padding: 10px;
+        background-color: #fff;
+        color: #333;
+    }
+
+
+/* General table styling */
+.table-striped {
+    width: fit-content;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+    .table-striped thead {
+        background-color: #000025;
+        color: #fff;
+    }
+
+    .table-striped th {
+        padding: 10px;
+        text-align: left;
+    }
+
+
+
+
+    /* Body row styling */
+    .table-striped tbody tr {
+        background-color: #f9f9f9;
+        transition: background-color 0.3s;
+    }
+
+        .table-striped tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Hover effect for rows */
+        .table-striped tbody tr:hover {
+            background-color: #e2e6ea;
+        }
+
+    /* Cell padding */
+    .table-striped td {
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+    /* Footer styling */
+    .table-striped tfoot {
+        background-color: #f1f1f1;
+        font-weight: bold;
+    }
+
+/* Label styling */
+.salesTable .footer-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.event-image {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+}
+
+/*Tables buttons*/
+/* Styling for the "Add New" button */
+.btn-td {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    gap: 1rem;
+}
+
+.btn-add {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .btn-add:hover {
+        background-color: #218838;
+    }
+
+/* Styling for the "Delete" button */
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .btn-delete:hover {
+        background-color: #c82333;
+    }
+
+/* Styling for the "Update" button */
+.btn-update {
+    background-color: #000025;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .btn-update:hover {
+        background-color: #0056b3;
+    }
+/* Styling for the "ticket" button */
+
+.btn-ticket {
+    background-color: #910464;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .btn-ticket:hover {
+        background-color: #0056b3;
+    }

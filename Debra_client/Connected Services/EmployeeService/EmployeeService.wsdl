@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AccepteEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eventid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isaccepted" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="cocommission" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccepteEventResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AccepteEventResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewEvents">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetNewEventsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewEventsResult" type="tns:ArrayOfEvent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEvent">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Event" nillable="true" type="tns:Event" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Event">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Partner">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PartnerID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Commission" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="Revenu" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="EventName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Venue" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ImageUrl" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsAccepted" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="DateTime" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Partner">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:User">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PartnterID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="User" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Userid" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Customer">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:User">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CustomerID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Firstname" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Lastname" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Employee">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:User">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="EmployeeID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Role" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetPartnersSalesByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="partnerid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPartnersSalesByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPartnersSalesByIDResult" type="tns:ArrayOfSalesRecord" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSalesRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SalesRecord" nillable="true" type="tns:SalesRecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SalesRecord">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TicketsSold" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Commission" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Partnerid" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Eventname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Venue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Companyname" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Totalsales" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Commissionrate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Totalcommission" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Aftercommission" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllPartnersSales">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllPartnersSalesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllPartnersSalesResult" type="tns:ArrayOfSalesRecord" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usertype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllUsersResult" type="tns:ArrayOfUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetUserStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetUserStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetUserStatusResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AccepteEventSoapIn">
+    <wsdl:part name="parameters" element="tns:AccepteEvent" />
+  </wsdl:message>
+  <wsdl:message name="AccepteEventSoapOut">
+    <wsdl:part name="parameters" element="tns:AccepteEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNewEventsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewEvents" />
+  </wsdl:message>
+  <wsdl:message name="GetNewEventsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPartnersSalesByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPartnersSalesByID" />
+  </wsdl:message>
+  <wsdl:message name="GetPartnersSalesByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPartnersSalesByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPartnersSalesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllPartnersSales" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPartnersSalesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllPartnersSalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetUserStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:SetUserStatus" />
+  </wsdl:message>
+  <wsdl:message name="SetUserStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:SetUserStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EmployeeServiceSoap">
+    <wsdl:operation name="AccepteEvent">
+      <wsdl:input message="tns:AccepteEventSoapIn" />
+      <wsdl:output message="tns:AccepteEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewEvents">
+      <wsdl:input message="tns:GetNewEventsSoapIn" />
+      <wsdl:output message="tns:GetNewEventsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartnersSalesByID">
+      <wsdl:input message="tns:GetPartnersSalesByIDSoapIn" />
+      <wsdl:output message="tns:GetPartnersSalesByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPartnersSales">
+      <wsdl:input message="tns:GetAllPartnersSalesSoapIn" />
+      <wsdl:output message="tns:GetAllPartnersSalesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input message="tns:GetAllUsersSoapIn" />
+      <wsdl:output message="tns:GetAllUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserStatus">
+      <wsdl:input message="tns:SetUserStatusSoapIn" />
+      <wsdl:output message="tns:SetUserStatusSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EmployeeServiceSoap" type="tns:EmployeeServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AccepteEvent">
+      <soap:operation soapAction="http://tempuri.org/AccepteEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewEvents">
+      <soap:operation soapAction="http://tempuri.org/GetNewEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartnersSalesByID">
+      <soap:operation soapAction="http://tempuri.org/GetPartnersSalesByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPartnersSales">
+      <soap:operation soapAction="http://tempuri.org/GetAllPartnersSales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserStatus">
+      <soap:operation soapAction="http://tempuri.org/SetUserStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EmployeeServiceSoap12" type="tns:EmployeeServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AccepteEvent">
+      <soap12:operation soapAction="http://tempuri.org/AccepteEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewEvents">
+      <soap12:operation soapAction="http://tempuri.org/GetNewEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartnersSalesByID">
+      <soap12:operation soapAction="http://tempuri.org/GetPartnersSalesByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPartnersSales">
+      <soap12:operation soapAction="http://tempuri.org/GetAllPartnersSales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap12:operation soapAction="http://tempuri.org/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserStatus">
+      <soap12:operation soapAction="http://tempuri.org/SetUserStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmployeeService">
+    <wsdl:port name="EmployeeServiceSoap" binding="tns:EmployeeServiceSoap">
+      <soap:address location="http://localhost:60099/Services/Employee/EmployeeService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EmployeeServiceSoap12" binding="tns:EmployeeServiceSoap12">
+      <soap12:address location="http://localhost:60099/Services/Employee/EmployeeService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

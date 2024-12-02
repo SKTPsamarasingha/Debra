@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debra_service", "Debra_service\Debra_service.csproj", "{D4F3DC2E-96B3-4AB4-AB76-F62685DCEF32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debra_client", "Debra_client\Debra_client.csproj", "{073F83B7-92BC-4EDF-8129-18B4CDAC72B7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D4F3DC2E-96B3-4AB4-AB76-F62685DCEF32} = {D4F3DC2E-96B3-4AB4-AB76-F62685DCEF32}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4F3DC2E-96B3-4AB4-AB76-F62685DCEF32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4F3DC2E-96B3-4AB4-AB76-F62685DCEF32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4F3DC2E-96B3-4AB4-AB76-F62685DCEF32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4F3DC2E-96B3-4AB4-AB76-F62685DCEF32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{073F83B7-92BC-4EDF-8129-18B4CDAC72B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{073F83B7-92BC-4EDF-8129-18B4CDAC72B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{073F83B7-92BC-4EDF-8129-18B4CDAC72B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{073F83B7-92BC-4EDF-8129-18B4CDAC72B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E0B39C1-10E3-48FE-B1D2-2E56EEE7AAAE}
+	EndGlobalSection
+EndGlobal

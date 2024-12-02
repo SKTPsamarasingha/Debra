@@ -1,0 +1,24 @@
+﻿CREATE OR REPLACE PROCEDURE CreateEmployee(
+    email VARCHAR(255),
+    password VARCHAR(255),
+    usertype VARCHAR(50),
+    firstname VARCHAR(100),
+    lastname VARCHAR(100),
+    role VARCHAR(100)
+)
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    new_userid INT;
+BEGIN
+    -- Insert data into the Users table
+    INSERT INTO Users (Email, Password, UserType)
+    VALUES (email, password, usertype)
+    RETURNING UserID INTO new_userid;
+
+    -- Insert data into the Employee table using the new UserID
+    INSERT INTO Employee (UserID, FirstName, LastName, Role)
+    VALUES (new_userid, firstname, lastname, role);
+END;
+$$;
+
